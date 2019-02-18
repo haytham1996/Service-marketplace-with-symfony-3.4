@@ -1,0 +1,336 @@
+{% extends 'front.html.twig' %}
+{% block css %}
+<style type="text/css" xmlns="http://www.w3.org/1999/html">
+    .mainbody {
+        background:#f0f0f0;
+    }
+    /* Special class on .container surrounding .navbar, used for positioning it into place. */
+    .navbar-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 20;
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    /* Flip around the padding for proper display in narrow viewports */
+    .navbar-wrapper .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .navbar-wrapper .navbar {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .navbar-content
+    {
+        width:320px;
+        padding: 15px;
+        padding-bottom:0px;
+    }
+    .navbar-content:before, .navbar-content:after
+    {
+        display: table;
+        content: "";
+        line-height: 0;
+    }
+    .navbar-nav.navbar-right:last-child {
+        margin-right: 15px !important;
+    }
+    .navbar-footer
+    {
+        background-color:#DDD;
+    }
+    .navbar-footer-content { padding:15px 15px 15px 15px; }
+    .dropdown-menu {
+        padding: 0px;
+        overflow: hidden;
+    }
+
+    .brand_network {
+        color: #9D9D9D;
+        float: left;
+        position: absolute;
+        left: 70px;
+        top: 30px;
+        font-size: smaller;
+    }
+
+    .post-content {
+        margin-left:10px;
+    }
+
+    .badge-important {
+        margin-top: 3px;
+        margin-left: 25px;
+        position: absolute;
+    }
+    .tagg {
+        background: #eee;
+        border-radius: 3px 0 0 3px;
+        color: #999;
+        display: inline-block;
+        height: 26px;
+        line-height: 26px;
+        padding: 0 20px 0 23px;
+        position: relative;
+        margin: 0 10px 10px 0;
+        text-decoration: none;
+        -webkit-transition: color 0.2s;
+    }
+
+    .tagg::before {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+        content: '';
+        height: 6px;
+        left: 10px;
+        position: absolute;
+        width: 6px;
+        top: 10px;
+    }
+
+    .tagg::after {
+        background: #fff;
+        border-bottom: 13px solid transparent;
+        border-left: 10px solid #eee;
+        border-top: 13px solid transparent;
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .tagg:hover {
+        background-color: crimson;
+        color: white;
+    }
+
+    .tagg:hover::after {
+        border-left-color: crimson;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="row">
+    <div id="tg-twocolumns" class="tg-twocolumns">
+        <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
+            <aside id="tg-sidebar" class="tg-sidebar">
+                <div class="tg-widgetprofile">
+                    <figure class="tg-profilebannerimg">
+                        <img src="images/img-02.jpg" alt="image description">
+                    </figure>
+                    <div class="tg-widgetcontent">
+                        <figure>
+                            <img src="images/thumbnails/img-07.jpg" alt="image description">
+                            <a class="tg-btnedite" href="javascript:void(0);"><i class="lnr lnr-pencil"></i></a>
+                        </figure>
+                        <div class="tg-admininfo">
+                            <h3>Kena Maresca</h3>
+                            <h4>Bright Future Group &amp; Company</h4>
+                            <ul class="tg-matadata">
+                                <li><span class="tg-stars"><span></span></span></li>
+                                <li>
+                                    <i class="fa fa-thumbs-o-up"></i>
+                                    <em>99% (1009 votes)</em>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="tg-widgetdashboard">
+                    <nav id="tg-dashboardnav" class="tg-dashboardnav">
+                        <ul>
+                            <li>
+                                <a href="dashboard.html">
+                                    <i class="lnr lnr-database"></i>
+                                    <span>Insights</span>
+                                </a>
+                            </li>
+                            <li class="tg-active">
+                                <a href="dashboardprofilesetting.html">
+                                    <i class="lnr lnr-cog"></i>
+                                    <span>Profile Settings</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="dashboardbusinesshours.html">
+                                    <i class="lnr lnr-clock"></i>
+                                    <span>Business Hours</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="dashboardmanageservice.html">
+                                    <i class="lnr lnr-briefcase"></i>
+                                    <span>Manage Services</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="dashboardmanageteams.html">
+                                    <i class="lnr lnr-users"></i>
+                                    <span>Manage Team</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="dashboardmanagejobs.html">
+                                    <i class="lnr lnr-map"></i>
+                                    <span>Manage Jobs</span>
+                                </a>
+                            </li>
+                            <li class="tg-privatemessages tg-hasdropdown">
+                                <a id="tg-btntoggle" class="tg-btntoggle" href="javascript:void(0);">
+                                    <i class="lnr lnr-envelope"></i>
+                                    <span>Private Messages</span>
+                                    <em class="tg-totalmessages">526</em>
+                                    <em class="tg-newmessages">1</em>
+                                </a>
+                                <ul class="tg-emailmenu">
+                                    <li class="tg-active">
+                                        <a href="dashboardprivatemessages.html">
+                                            <span>inbox</span>
+                                            <em class="tg-totalmessages">526</em>
+                                            <em class="tg-newmessages">1</em>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="dashboardprivatemessages.html">
+                                            <span>sent</span>
+                                            <em class="tg-totalmessages">370</em>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="dashboardprivatemessages.html">
+                                            <span>trash</span>
+                                            <em class="tg-totalmessages">160</em>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="dashboardprivatemessages.html">
+                                            <span>spam/junk</span>
+                                            <em class="tg-totalmessages">1260</em>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="dashboardappointment.html">
+                                    <i class="lnr lnr-calendar-full"></i>
+                                    <span>Appointments</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="dashboardappointmentsetting.html">
+                                    <i class="lnr lnr-calendar-full"></i>
+                                    <span>Appointment Settings</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="dashboardfavoritlisting.html">
+                                    <i class="lnr lnr-heart"></i>
+                                    <span>Favourite Listings</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="dashboardinvoices.html">
+                                    <i class="lnr lnr-list"></i>
+                                    <span>Invoices</span>
+                                    <em class="tg-invoices">23</em>
+                                </a>
+                            </li>
+                            <li class="tg-updatepackage">
+                                <a href="dashboardupgradepackage.html">
+                                    <i class="lnr lnr-layers"></i>
+                                    <span>Update Package</span>
+                                    <em class="lnr lnr-flag tg-taginfo"></em>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="dashboardsecuritysetting.html">
+                                    <i class="lnr lnr-construction"></i>
+                                    <span>Security Settings</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="dashboardprivacysetting.html">
+                                    <i class="lnr lnr-lock"></i>
+                                    <span>Privacy Settings</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="lnr lnr-exit"></i>
+                                    <span>Logout</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="tg-widgetdashboard hidden-xs">
+                    <div class="tg-banneradd">
+                        <figure>
+                            <a href="#"><img src="images/add-01.png" alt="image description"></a>
+                        </figure>
+                    </div>
+                </div>
+            </aside>
+        </div>
+        <div class="mainbody container-fluid">
+            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+            <div id="tg-content" class="tg-content">
+                <div class="ui-block-title">
+                    <div class="h1 title">Your recent posts</div>
+                    <div class="align-right">
+                                <input name="libelle" class="form-control" type="text" placeholder="Look for a post">
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <p class="panel-body">
+                {% for r in recent %}
+                    <p>
+
+                    <div class="pull-left">
+                        <a href="#">
+                            <p><img class="media-object img-circle" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="50px" height="50px" style="margin-right:5px; margin-top:-5px;"></p>
+                        </a>
+                    </div>
+                    <h4><a style="text-decoration:none;"><strong>{{ r.user.nom ~" "~ r.user.prenom }}</strong></a> – <small><small><a href="#" style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i>{{ r.datePublication|date }}</i></a></small></small></h4>
+                    <div class="post-content">
+                        <hr>
+                        <h4><p>{{ r.contenu|raw }}</p></h4>
+                        {% if r.image != "" %}
+                        <img class="img-responsive" src="{{ asset('images/' ~ r.image) }}" width="50%" height="50%">
+                        {% endif %}
+                        <h4> Tags:</h4>
+                        {% for tag in r.tag %}
+                        <a href="{{ path('showPost') }}?tag={{ tag }}" class="tagg">#{{ tag }}</a>
+                        {% endfor %}
+
+                    </div>
+                <a href="{{ path('updatePost',{'idp':r.id}) }}"> <img style="height: 0.5cm;width: 0.5cm" src="http://www.iconarchive.com/download/i60504/custom-icon-design/pretty-office-9/edit-validated.ico">Edit post
+                    </p>
+
+                    <hr>
+                    {% endfor %}
+                    </div>
+                </div>
+</div>
+        </div>
+    </div>
+</div>
+</div>
+    {% block js %}
+        <script type="text/javascript">
+        $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+        })
+
+        $(function () {
+        $('[data-toggle="popover"]').popover()
+        })
+        </script>
+        {% endblock %}
+{% endblock %}

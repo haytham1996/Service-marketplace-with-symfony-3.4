@@ -1,0 +1,3 @@
+interaction_homepage:
+    path:     /
+    defaults: { _controller: InteractionBundle:Default:index }

@@ -1,0 +1,34 @@
+livraison:
+    resource: "@LivraisonBundle/Resources/config/routing.yml"
+    prefix:   /livraison
+
+forum:
+    resource: "@ForumBundle/Resources/config/routing.yml"
+    prefix:   /forum
+
+service:
+    resource: "@ServiceBundle/Resources/config/routing.yml"
+    prefix:   /service
+
+interaction:
+    resource: "@InteractionBundle/Resources/config/routing.yml"
+    prefix:   /interaction
+
+profiling:
+    resource: "@ProfilingBundle/Resources/config/routing.yml"
+    prefix:   /profile
+
+event:
+    resource: "@EventBundle/Resources/config/routing.yml"
+    prefix:   /event
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /user

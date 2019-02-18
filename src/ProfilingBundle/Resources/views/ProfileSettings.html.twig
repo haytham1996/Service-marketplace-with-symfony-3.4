@@ -1,0 +1,284 @@
+{% extends 'front.html.twig' %}
+{% block title %} Profile Settings {% endblock %}
+{% block css %}
+    <style>
+    .divlm{
+    display:none;
+    }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div id="tg-twocolumns" class="tg-twocolumns">
+            <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
+                <aside id="tg-sidebar" class="tg-sidebar">
+                    <div class="tg-widgetprofile">
+                        <figure class="tg-profilebannerimg">
+                            <img src="images/img-02.jpg" alt="image description">
+                        </figure>
+                        <div class="tg-widgetcontent">
+                            <figure>
+                                <img src="images/thumbnails/img-07.jpg" alt="image description">
+                                <a class="tg-btnedite" href="javascript:void(0);"><i class="lnr lnr-pencil"></i></a>
+                            </figure>
+                            <div class="tg-admininfo">
+                                <h3>Kena Maresca</h3>
+                                <h4>Bright Future Group &amp; Company</h4>
+                                <ul class="tg-matadata">
+                                    <li><span class="tg-stars"><span></span></span></li>
+                                    <li>
+                                        <i class="fa fa-thumbs-o-up"></i>
+                                        <em>99% (1009 votes)</em>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tg-widgetdashboard">
+                        <nav id="tg-dashboardnav" class="tg-dashboardnav">
+                            <ul>
+                                <li>
+                                    <a href="dashboard.html">
+                                        <i class="lnr lnr-database"></i>
+                                        <span>Insights</span>
+                                    </a>
+                                </li>
+                                <li class="tg-active">
+                                    <a href="dashboardprofilesetting.html">
+                                        <i class="lnr lnr-cog"></i>
+                                        <span>Profile Settings</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboardbusinesshours.html">
+                                        <i class="lnr lnr-clock"></i>
+                                        <span>Business Hours</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboardmanageservice.html">
+                                        <i class="lnr lnr-briefcase"></i>
+                                        <span>Manage Services</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboardmanageteams.html">
+                                        <i class="lnr lnr-users"></i>
+                                        <span>Manage Team</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboardmanagejobs.html">
+                                        <i class="lnr lnr-map"></i>
+                                        <span>Manage Jobs</span>
+                                    </a>
+                                </li>
+                                <li class="tg-privatemessages tg-hasdropdown">
+                                    <a id="tg-btntoggle" class="tg-btntoggle" href="javascript:void(0);">
+                                        <i class="lnr lnr-envelope"></i>
+                                        <span>Private Messages</span>
+                                        <em class="tg-totalmessages">526</em>
+                                        <em class="tg-newmessages">1</em>
+                                    </a>
+                                    <ul class="tg-emailmenu">
+                                        <li class="tg-active">
+                                            <a href="dashboardprivatemessages.html">
+                                                <span>inbox</span>
+                                                <em class="tg-totalmessages">526</em>
+                                                <em class="tg-newmessages">1</em>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="dashboardprivatemessages.html">
+                                                <span>sent</span>
+                                                <em class="tg-totalmessages">370</em>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="dashboardprivatemessages.html">
+                                                <span>trash</span>
+                                                <em class="tg-totalmessages">160</em>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="dashboardprivatemessages.html">
+                                                <span>spam/junk</span>
+                                                <em class="tg-totalmessages">1260</em>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="dashboardappointment.html">
+                                        <i class="lnr lnr-calendar-full"></i>
+                                        <span>Appointments</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboardappointmentsetting.html">
+                                        <i class="lnr lnr-calendar-full"></i>
+                                        <span>Appointment Settings</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboardfavoritlisting.html">
+                                        <i class="lnr lnr-heart"></i>
+                                        <span>Favourite Listings</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboardinvoices.html">
+                                        <i class="lnr lnr-list"></i>
+                                        <span>Invoices</span>
+                                        <em class="tg-invoices">23</em>
+                                    </a>
+                                </li>
+                                <li class="tg-updatepackage">
+                                    <a href="dashboardupgradepackage.html">
+                                        <i class="lnr lnr-layers"></i>
+                                        <span>Update Package</span>
+                                        <em class="lnr lnr-flag tg-taginfo"></em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboardsecuritysetting.html">
+                                        <i class="lnr lnr-construction"></i>
+                                        <span>Security Settings</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboardprivacysetting.html">
+                                        <i class="lnr lnr-lock"></i>
+                                        <span>Privacy Settings</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="lnr lnr-exit"></i>
+                                        <span>Logout</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="tg-widgetdashboard hidden-xs">
+                        <div class="tg-banneradd">
+                            <figure>
+                                <a href="#"><img src="images/add-01.png" alt="image description"></a>
+                            </figure>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <div class="modal fade" id="update-header-photo">
+                <div class="modal-dialog ui-block window-popup update-header-photo">
+                    <a href="#" class="close icon-close" data-dismiss="modal" aria-label="Close">
+                        <svg class="olymp-close-icon"><use xlink:href={{ asset('icons/icons.svg#olymp-close-icon') }}></use></svg>
+                    </a>
+
+                    <div class="ui-block-title">
+                        <h6 class="title">Ajouter Photo a l'album</h6>
+                    </div>
+
+                    <a href="#" class="upload-photo-itemCus">
+                        <div class="file-upload">
+                            <svg class="olymp-computer-icon"><use xlink:href={{ asset('icons/icons.svg#olymp-computer-icon') }}></use></svg>
+                            <h6>Ajouter Photo</h6>
+                            {{ form_start(form) }}
+                            {{ form_widget(form.imageFile) }}
+                            {{ form_widget(form.Ajouter, { 'attr': {'class': 'btn btn-primary btn-lg full-width'} }) }}
+                            {{ form_end(form) }}
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
+                <div id="tg-content" class="tg-content">
+                    <div class="tg-dashboard tg-dashboardprofilesetting">
+
+                            <fieldset>
+
+                                <div class="tg-dashboardbox tg-imggallery">
+                                    <div class="tg-dashboardtitle">
+                                        <h2>My Gallery</h2>
+                                    </div>
+                                    <div class="tg-imggallerybox">
+                                        <div class="tg-upload">
+                                            <div class="tg-uploadhead">
+                                                            <span>
+                                                                <h3>Upload Photo Gallery</h3>
+                                                                <i class="fa fa-exclamation-circle"></i>
+                                                            </span>
+                                                <i class="lnr lnr-upload"></i>
+                                            </div>
+                                            <img class="tg-box">
+                                                <label class="tab-pane active" id="photo-page" role="tabpanel">
+
+                                                </label>
+                                                <div class="photo-album-wrapper">
+                                                    <div class="tg-galleryimages">
+                                                        {% for p in photos %}
+                                                        <div class="photo-item col-4-width divlm">
+                                                                <img src="{{ asset('') }}{{ vich_uploader_asset(p, 'imageFile') }}" alt="photo" width="100" height="100" data-enlargable style="cursor: zoom-in">
+                                                                <div class="more">
+                                                                    <ul class="more-dropdown ">
+                                                                        <li>
+                                                                            <a href="#" id="{{ p.id }}" class="clicksup">Supprimer Photo</a>
+                                                                            <input type="hidden" value="{{ p.id }}" name="idp">
+                                                                        </li>
+                                                                    </ul>
+                                                        </div>
+                                                                <div class="content">
+                                                                    <time class="published" >Ajouté le: {{ p.datePublication|date('d/m/Y') }}</time>
+                                                                </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                <img href="#" id="loadMore" class="btn btn-control btn-more amore" src="{{ asset('images/loadmore.png') }}">
+                                            <a href="#" data-toggle="modal" data-target="#update-header-photo" class="btn btn-primary btn-md-2 ">Ajouter Photo  +</a>
+                                        </div>
+                                        <div id="Fullscreen">
+                                            <img src="" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </fieldset>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block js %}
+<script>
+
+    $(function () {
+        $(".divlm").slice(0, 4).show();
+
+        $("#loadMore").on('click', function (e) {
+            e.preventDefault();
+            $(".divlm:hidden").slice(0, 4).slideDown();
+
+            if ($(".divlm:hidden").length == 0) {
+                $("#load").fadeOut('slow');
+            }
+            $('html,body').animate({
+                scrollTop: $(this).offset().top
+            }, 1500);
+        });
+    });
+        //------------
+        $('.clicksup').click(function (e) {
+
+            var idClicked = e.target.id;
+            console.log(idClicked);
+            $('#fs'+idClicked ).submit();
+        });
+    </script>
+{% endblock %}
+{% endblock %}

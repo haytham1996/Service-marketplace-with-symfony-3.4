@@ -1,0 +1,18 @@
+profilehomepage:
+    path:     /profilehomepage
+    defaults: { _controller: ProfilingBundle:Profile:index_profile }
+album:
+    path:     /album
+    defaults: { _controller: ProfilingBundle:Profile:album }
+createPost:
+    path:     /post/create
+    defaults: { _controller: ProfilingBundle:Profile:create }
+showPost:
+    path:     /post/read
+    defaults: { _controller: ProfilingBundle:Profile:read }
+updatePost:
+    path:     /post/update/{idp}
+    defaults: { _controller: ProfilingBundle:Profile:update }
+tag:
+    resource: "@ProfilingBundle/Controller/"
+    type: annotation

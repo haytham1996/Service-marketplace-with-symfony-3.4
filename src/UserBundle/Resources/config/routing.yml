@@ -1,0 +1,18 @@
+user_homepage:
+    path:     /
+    defaults: { _controller: UserBundle:Default:index }
+login:
+    path:     /login
+    defaults: { _controller: UserBundle:Default:login }
+register:
+        path:     /register
+        defaults: { _controller: UserBundle:Default:register }
+loginAdmin:
+    path:     /loginAdmin
+    defaults: { _controller: UserBundle:Dashboard:loginAdmin }
+test:
+    path:     /test
+    defaults: { _controller: UserBundle:Dashboard:test }
+indexAdmin:
+    path:     /indexAdmin
+    defaults: { _controller: UserBundle:Dashboard:indexAdmin }

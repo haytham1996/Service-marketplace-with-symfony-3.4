@@ -1,0 +1,553 @@
+{% extends 'front.html.twig' %}
+{% block title %} Profile Main Page {% endblock %}
+{% block content %}
+    <div class="row">
+        <div id="tg-twocolumns" class="tg-twocolumns">
+            <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
+                <aside id="tg-sidebar" class="tg-sidebar">
+                    <div class="tg-widgetprofile">
+                        <figure class="tg-profilebannerimg">
+                            <img src={{ asset('images/img-02.jpg') }} alt="image description">
+                        </figure>
+                        <div class="tg-widgetcontent">
+                            <figure>
+                                <img src={{ asset('images/thumbnails/img-07.jpg') }} alt="image description">
+                                <a class="tg-btnedite" href="javascript:void(0);"><i class="lnr lnr-pencil"></i></a>
+                            </figure>
+                            <div class="tg-admininfo">
+                                <h3>{{curr_user.prenom ~" "~ curr_user.nom }}</h3>
+                                <h4>Bright Future Group &amp; Company</h4>
+                                <ul class="tg-matadata">
+                                    <li><span class="tg-stars"><span></span></span></li>
+                                    <li>
+                                        <i class="fa fa-thumbs-o-up"></i>
+                                        <em>99% (1009 votes)</em>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tg-widgetdashboard">
+                        <nav id="tg-dashboardnav" class="tg-dashboardnav">
+                            <ul>
+                                <li class="tg-active">
+                                    <a href="dashboard.html">
+                                        <i class="lnr lnr-database"></i>
+                                        <span>Insights</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboardprofilesetting.html">
+                                        <i class="lnr lnr-cog"></i>
+                                        <span>Profile Settings</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboardbusinesshours.html">
+                                        <i class="lnr lnr-clock"></i>
+                                        <span>Business Hours</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboardmanageservice.html">
+                                        <i class="lnr lnr-briefcase"></i>
+                                        <span>Manage Services</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboardmanageteams.html">
+                                        <i class="lnr lnr-users"></i>
+                                        <span>Manage Team</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboardmanagejobs.html">
+                                        <i class="lnr lnr-map"></i>
+                                        <span>Manage Jobs</span>
+                                    </a>
+                                </li>
+                                <li class="tg-privatemessages tg-hasdropdown">
+                                    <a id="tg-btntoggle" class="tg-btntoggle" href="javascript:void(0);">
+                                        <i class="lnr lnr-envelope"></i>
+                                        <span>Private Messages</span>
+                                        <em class="tg-totalmessages">526</em>
+                                        <em class="tg-newmessages">1</em>
+                                    </a>
+                                    <ul class="tg-emailmenu">
+                                        <li class="tg-active">
+                                            <a href="dashboardprivatemessages.html">
+                                                <span>inbox</span>
+                                                <em class="tg-totalmessages">526</em>
+                                                <em class="tg-newmessages">1</em>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="dashboardprivatemessages.html">
+                                                <span>sent</span>
+                                                <em class="tg-totalmessages">370</em>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="dashboardprivatemessages.html">
+                                                <span>trash</span>
+                                                <em class="tg-totalmessages">160</em>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="dashboardprivatemessages.html">
+                                                <span>spam/junk</span>
+                                                <em class="tg-totalmessages">1260</em>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="dashboardappointment.html">
+                                        <i class="lnr lnr-calendar-full"></i>
+                                        <span>Appointments</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboardappointmentsetting.html">
+                                        <i class="lnr lnr-calendar-full"></i>
+                                        <span>Appointment Settings</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboardfavoritlisting.html">
+                                        <i class="lnr lnr-heart"></i>
+                                        <span>Favourite Listings</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboardinvoices.html">
+                                        <i class="lnr lnr-list"></i>
+                                        <span>Invoices</span>
+                                        <em class="tg-invoices">23</em>
+                                    </a>
+                                </li>
+                                <li class="tg-updatepackage">
+                                    <a href="dashboardupgradepackage.html">
+                                        <i class="lnr lnr-layers"></i>
+                                        <span>Update Package</span>
+                                        <em class="lnr lnr-flag tg-taginfo"></em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboardsecuritysetting.html">
+                                        <i class="lnr lnr-construction"></i>
+                                        <span>Security Settings</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboardprivacysetting.html">
+                                        <i class="lnr lnr-lock"></i>
+                                        <span>Privacy Settings</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="lnr lnr-exit"></i>
+                                        <span>Logout</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="tg-widgetdashboard hidden-xs">
+                        <div class="tg-banneradd">
+                            <figure>
+                                <a href="#"><img src={{ asset('images/add-01.png') }} alt="image description"></a>
+                            </figure>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
+                <div id="tg-content" class="tg-content">
+                    <div class="tg-dashboard">
+                        <div class="tg-banneradd">
+                            <figure>
+                                <a href="#"><img src={{ asset('images/add-02.png') }} alt="image description"></a>
+                            </figure>
+                        </div>
+                        <div class="tg-alertmessages">
+                            <div class="alert alert-success tg-alertmessage fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close"><em class="lnr lnr-cross"></em></a>
+                                <i class="lnr lnr-star"></i>
+                                <span><strong>success Message:</strong> Adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim minimati</span>
+                            </div>
+                            <div class="alert alert-info tg-alertmessage fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close"><em class="lnr lnr-cross"></em></a>
+                                <i class="lnr lnr-flag"></i>
+                                <span><strong>info Message:</strong> Adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim minimati</span>
+                            </div>
+                            <div class="alert alert-warning tg-alertmessage fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close"><em class="lnr lnr-cross"></em></a>
+                                <i class="lnr lnr-construction"></i>
+                                <span><strong>warning Message:</strong> Adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim minimati</span>
+                            </div>
+                            <div class="alert alert-danger tg-alertmessage fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close"><em class="lnr lnr-cross"></em></a>
+                                <i class="lnr lnr-bug"></i>
+                                <span><strong>Error Message:</strong> Adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim minimati</span>
+                            </div>
+                        </div>
+                        <div class="tg-alertmessages tg-ceomessage">
+                            <div class="alert alert-danger tg-alertmessage fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close"><em class="lnr lnr-cross"></em></a>
+                                <h2>Greetings &amp; Welcome!</h2>
+                                <span>Consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore mana aliqua enim adiata mini veniata quis nostrud exercitation ullamco laboris nisi ut aliquip extea commodo.</span>
+                                <div class="tg-ceobottom">
+                                    <div class="tg-ceocontent">
+                                        <figure>
+                                            <img src={{ asset('images/ceo-img.jpg') }} alt="image description">
+                                        </figure>
+                                        <div class="tg-ceoinfo">
+                                            <span>Regards,</span>
+                                            <span>Arden Hockenberry (C.E.O)</span>
+                                        </div>
+                                    </div>
+                                    <strong class="tg-logo"><img src={{ asset('images/slogo.png') }} alt="image description"></strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tg-dashboardnotifications">
+                            <div class="tg-dashboardnotificationholder">
+                                <div class="tg-dashboardnotofication tg-totaljobs">
+                                    <i class="lnr lnr-calendar-full"></i>
+                                    <div class="tg-dashboardinfo">
+                                        <h3>Total Jobs Posted</h3>
+                                        <span>3547 Jobs Posted</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tg-dashboardnotificationholder">
+                                <div class="tg-dashboardnotofication tg-totalappointment">
+                                    <i class="lnr lnr-layers"></i>
+                                    <div class="tg-dashboardinfo">
+                                        <h3>Total Appointments</h3>
+                                        <span>57521 Appointments Served</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tg-dashboardnotificationholder">
+                                <div class="tg-dashboardnotofication tg-currentpackege">
+                                    <i class="lnr lnr-eye"></i>
+                                    <div class="tg-dashboardinfo">
+                                        <h3>Current Package</h3>
+                                        <span>Basic Package</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tg-competinggraph">
+                            <h2>You're Competing With Others</h2>
+                            <div id="tg-competingchart" class="tg-themechart tg-competingchart"></div>
+                        </div>
+                        <div class="tg-profilewidgetholder">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div class="tg-profilewidget tg-peaoplereviews">
+                                        <div class="tg-profilewidgethead">
+                                            <a class="tg-btnrefresh" href="javascript:void(0);"><i class="lnr lnr-sync"></i></a>
+                                            <h2>People Reviews</h2>
+                                        </div>
+                                        <div class="tg-box">
+                                            <div class="tg-reviewarea">
+                                                <ul class="tg-reviews tg-themescrollbar">
+                                                    <li>
+                                                        <figure>
+                                                            <img src={{ asset('images/thumbnails/img-08.jpg') }} alt="image description">
+                                                        </figure>
+                                                        <div class="tg-reviewcontent">
+                                                            <div class="tg-reviewhead">
+                                                                <div class="tg-reviewheading">
+                                                                    <h3><a href="javascript:void(0);">Good Service But Not ...</a></h3>
+                                                                </div>
+                                                                <span class="tg-stars"><span></span></span>
+                                                            </div>
+                                                            <div class="tg-description">
+                                                                <p>Labore et dolore magna aliqua enim inim veniam quis nostrud exercitation ullamco...</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <figure>
+                                                            <img src={{ asset('images/thumbnails/img-09.jpg') }} alt="image description">
+                                                        </figure>
+                                                        <div class="tg-reviewcontent">
+                                                            <div class="tg-reviewhead">
+                                                                <div class="tg-reviewheading">
+                                                                    <h3><a href="javascript:void(0);">Professional Indeed</a></h3>
+                                                                </div>
+                                                                <span class="tg-stars"><span></span></span>
+                                                            </div>
+                                                            <div class="tg-description">
+                                                                <p>Labore et dolore magna aliqua enim inim veniam quis nostrud exercitation ullamco...</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <figure>
+                                                            <img src={{ asset('images/thumbnails/img-10.jpg') }} alt="image description">
+                                                        </figure>
+                                                        <div class="tg-reviewcontent">
+                                                            <div class="tg-reviewhead">
+                                                                <div class="tg-reviewheading">
+                                                                    <h3><a href="javascript:void(0);">They Are Awsome</a></h3>
+                                                                </div>
+                                                                <span class="tg-stars"><span></span></span>
+                                                            </div>
+                                                            <div class="tg-description">
+                                                                <p>Labore et dolore magna aliqua enim inim veniam quis nostrud exercitation ullamco...</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <figure>
+                                                            <img src={{ asset('images/thumbnails/img-11.jpg') }} alt="image description">
+                                                        </figure>
+                                                        <div class="tg-reviewcontent">
+                                                            <div class="tg-reviewhead">
+                                                                <div class="tg-reviewheading">
+                                                                    <h3><a href="javascript:void(0);">Good Keep It Up!</a></h3>
+                                                                </div>
+                                                                <span class="tg-stars"><span></span></span>
+                                                            </div>
+                                                            <div class="tg-description">
+                                                                <p>Labore et dolore magna aliqua enim inim veniam quis nostrud exercitation ullamco...</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <figure>
+                                                            <img src={{ asset('images/thumbnails/img-08.jpg') }} alt="image description">
+                                                        </figure>
+                                                        <div class="tg-reviewcontent">
+                                                            <div class="tg-reviewhead">
+                                                                <div class="tg-reviewheading">
+                                                                    <h3><a href="javascript:void(0);">Good Service But Not ...</a></h3>
+                                                                </div>
+                                                                <span class="tg-stars"><span></span></span>
+                                                            </div>
+                                                            <div class="tg-description">
+                                                                <p>Labore et dolore magna aliqua enim inim veniam quis nostrud exercitation ullamco...</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <figure>
+                                                            <img src={{ asset('images/thumbnails/img-09.jpg') }} alt="image description">
+                                                        </figure>
+                                                        <div class="tg-reviewcontent">
+                                                            <div class="tg-reviewhead">
+                                                                <div class="tg-reviewheading">
+                                                                    <h3><a href="javascript:void(0);">Good Service But Not ...</a></h3>
+                                                                </div>
+                                                                <span class="tg-stars"><span></span></span>
+                                                            </div>
+                                                            <div class="tg-description">
+                                                                <p>Labore et dolore magna aliqua enim inim veniam quis nostrud exercitation ullamco...</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <figure>
+                                                            <img src={{ asset('images/thumbnails/img-10.jpg') }} alt="image description">
+                                                        </figure>
+                                                        <div class="tg-reviewcontent">
+                                                            <div class="tg-reviewhead">
+                                                                <div class="tg-reviewheading">
+                                                                    <h3><a href="javascript:void(0);">Good Service But Not ...</a></h3>
+                                                                </div>
+                                                                <span class="tg-stars"><span></span></span>
+                                                            </div>
+                                                            <div class="tg-description">
+                                                                <p>Labore et dolore magna aliqua enim inim veniam quis nostrud exercitation ullamco...</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div class="tg-profilewidget tg-recentactivities">
+                                        <div class="tg-profilewidgethead">
+                                            <a class="tg-btnrefresh" href="javascript:void(0);"><i class="lnr lnr-sync"></i></a>
+                                            <h2>Recet Activities</h2>
+                                        </div>
+                                        <div class="tg-box">
+                                            <div class="tg-reviewarea">
+                                                <ul class="tg-reviews tg-themescrollbar">
+                                                    <li>
+                                                        <div class="tg-recentcontent">
+                                                            <h3>You Logged In Via Mobile</h3>
+                                                            <span>02 Minutes Ago</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="tg-recentcontent">
+                                                            <h3>You Liked In <a href="#">David Jhonson</a></h3>
+                                                            <span>01 Day Ago</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="tg-recentcontent">
+                                                            <h3>You Updated Your Profile Photo</h3>
+                                                            <span>01 Day Ago</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="tg-recentcontent">
+                                                            <h3>You Posted A Job - <a href="#">Carpenter Required</a></h3>
+                                                            <span>03 Day Ago</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="tg-recentcontent">
+                                                            <h3>You Subscribed Basic Package</h3>
+                                                            <span>03 Days Ago</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="tg-recentcontent">
+                                                            <h3>You Liked In <a href="#">David Jhonson</a></h3>
+                                                            <span>02 Minutes Ago</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="tg-recentcontent">
+                                                            <h3>You Updated Your Profile Photo</h3>
+                                                            <span>02 Minutes Ago</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="tg-recentcontent">
+                                                            <h3>You Posted A Job - <a href="#">Carpenter Required</a></h3>
+                                                            <span>02 Minutes Ago</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="tg-recentcontent">
+                                                            <h3>You Logged In Via Mobile</h3>
+                                                            <span>02 Minutes Ago</span>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div class="tg-profilewidget tg-todolists">
+                                        <div class="tg-profilewidgethead">
+                                            <a class="tg-btnrefresh" href="javascript:void(0);"><i class="lnr lnr-sync"></i></a>
+                                            <h2>Todo List</h2>
+                                        </div>
+                                        <div class="tg-box">
+                                            <div class="tg-reviewarea">
+                                                <ul class="tg-reviews tg-themescrollbar">
+                                                    <li>
+                                                        <div class="tg-checkbox">
+                                                            <input type="checkbox" id="backup" name="dolist">
+                                                            <label for="backup"><span>Take Backup Of Website<a class="tg-btndel">Delete</a></span></label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="tg-checkbox">
+                                                            <input type="checkbox" id="presentation" name="dolist">
+                                                            <label for="presentation"><span>Make Presentation For Meeting<a class="tg-btndel">Delete</a></span></label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="tg-checkbox">
+                                                            <input type="checkbox" id="compile" name="dolist">
+                                                            <label for="compile"><span>Compile Papers<a class="tg-btndel">Delete</a></span></label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="tg-checkbox">
+                                                            <input type="checkbox" id="buy" name="dolist">
+                                                            <label for="buy"><span>Have To Buy New Cell Phone<a class="tg-btndel">Delete</a></span></label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="tg-checkbox">
+                                                            <input type="checkbox" id="birthday" name="dolist">
+                                                            <label for="birthday"><span><a href="javascript:void(0);">Jhone Doe</a> Birthday June 27, 2017<a class="tg-btndel">Delete</a></span></label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="tg-checkbox">
+                                                            <input type="checkbox" id="confirm" name="dolist">
+                                                            <label for="confirm"><span>Call Back To <a href="javascript:void(0);">Rosy Clan</a> For Confirmation<a class="tg-btndel">Delete</a></span></label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="tg-checkbox">
+                                                            <input type="checkbox" id="carpenter" checked name="dolist">
+                                                            <label for="carpenter"><span><del>Post Job For Carpenter</del><a class="tg-btndel">Delete</a></span></label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="tg-checkbox">
+                                                            <input type="checkbox" id="expire" name="dolist" checked>
+                                                            <label for="expire"><span><del>Subscription Expire on April 27, 2017</del><a class="tg-btndel">Delete</a></span></label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="tg-checkbox">
+                                                            <input type="checkbox" id="subscribe" name="dolist" checked>
+                                                            <label for="subscribe"><span><del>Subscription Expire on April 27, 2017</del><a class="tg-btndel">Delete</a></span></label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="tg-checkbox">
+                                                            <input type="checkbox" id="april" name="dolist" checked>
+                                                            <label for="april"><span><del>Subscription Expire on April 27, 2017</del><a class="tg-btndel">Delete</a></span></label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="tg-checkbox">
+                                                            <input type="checkbox" id="aprilon" name="dolist" checked>
+                                                            <label for="aprilon"><span><del>Subscription Expire on April 27, 2017</del><a class="tg-btndel">Delete</a></span></label>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div class="tg-profilewidget tg-weathercast">
+                                        <div class="tg-profilewidgethead">
+                                            <a class="tg-btnrefresh" href="javascript:void(0);"><i class="lnr lnr-sync"></i></a>
+                                            <h2>Weather</h2>
+                                        </div>
+                                        <div class="tg-box">
+                                            <div class="tg-reviewarea">
+                                                <div id="weather"></div>
+                                            </div>
+                                            <div class="tg-weatherinfo">
+                                                <h3>Manchester, England</h3>
+                                                <ul>
+                                                    <li><span>-12°</span><span>Partly Cloudy</span></li>
+                                                    <li><span>High: -2° Low: -14°</span><span>Wind: SSW 3.94km/h</span></li>
+                                                    <li><span>Humidity: 63</span><span>Visibility: 11.21</span></li>
+                                                    <li><span>Sunrise: 7:36 am</span><span>Sunset: 4:49 pm</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
