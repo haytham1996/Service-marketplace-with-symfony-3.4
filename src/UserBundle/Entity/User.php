@@ -139,7 +139,8 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
-        $this->setImage="";
+        $this->setImage("");
+        $this->setApropos("");
     }
 
     /**
@@ -242,6 +243,26 @@ class User extends BaseUser
     public function setImage($image)
     {
         $this->image = $image;
+    }
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="apropos", type="string" , length=255,nullable=true)
+     */
+    private $apropos;
+    /**
+     * @return string
+     */
+    public function getApropos()
+    {
+        return $this->apropos;
+    }
+    /**
+     * @param string $apropos
+     */
+    public function setApropos($apropos)
+    {
+        $this->apropos = $apropos;
     }
 
 }
