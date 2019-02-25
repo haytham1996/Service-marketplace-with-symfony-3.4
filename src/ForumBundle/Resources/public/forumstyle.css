@@ -1,0 +1,544 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    color: #fff;
+    background-color: #c80400;
+    font-family: verdana, arial, sans-serif;
+    font-size: 10px;
+    line-height: 15px;
+}
+
+a {
+    color: #fff;
+    background-color: inherit;
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+span {
+    display: none;
+}
+
+img {
+    border: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+p {
+    padding: 7px 0px 8px;
+    text-align: justify;
+}
+
+input {
+    border: 0px;
+    font-family: verdana, arial, sans-serif;
+    font-size: 11px;
+}
+
+.clearthis {
+    margin : 0px;
+    height : 1px;
+    clear : both;
+    float : none;
+    font-size: 1px;
+    line-height: 0px;
+    overflow : hidden;
+    visibility: hidden;
+}
+
+#body_wrapper {
+    margin-right: auto;
+    width: 1004px;
+    background: url('images/background.jpg') repeat-y 0% 0%;
+}
+
+#rightcolumn {
+    width: 775px;
+    float: right;
+    text-align: left;
+}
+
+/* Page Header */
+
+#page_header {
+    background: url('images/header_bg.jpg') no-repeat 0% 0%;
+    width: 775px;
+    height: 193px;
+}
+
+
+/* Main Navigational Menu */
+
+#mainnav {
+    width: 775px;
+    height: 45px;
+    background: url('images/headernav_bg.jpg') repeat-x 0% 0%;
+    overflow: hidden;
+}
+
+#mainnav ul {
+    height: 44px;
+    border-bottom: #fff 1px solid;
+}
+
+#mainnav li {
+    height: 44px;
+    float: left;
+    border-left: #fff 1px solid;
+}
+
+#mainnav li a {
+    margin: 13px 5px 0px 6px;
+    display: block;
+    height: 21px;
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+}
+
+li#mainnav_01 a {
+    margin-left: 10px;
+    width: 40px;
+
+}
+
+li#mainnav_02 a {
+    width: 52px;
+
+}
+
+li#mainnav_03 a {
+    width: 69px;
+
+}
+
+li#mainnav_04 a {
+    width: 62px;
+
+}
+
+li#mainnav_05 a {
+    width: 83px;
+
+}
+
+li#mainnav_06 a {
+    width: 60px;
+
+}
+
+li#mainnav_07 a {
+    width: 74px;
+
+}
+
+li#mainnav_08 a {
+    width: 42px;
+
+}
+
+li#mainnav_09 a {
+    width: 49px;
+
+}
+
+li#mainnav_10 a {
+    width: 45px;
+
+}
+
+li#mainnav_11 a {
+    margin-right: 0px;
+    width: 60px;
+
+}
+
+
+/* Center Column */
+
+#centercolumn {
+    width: 552px;
+    color: #333;
+    background-color: #fff;
+    float: left;
+    text-align: center;
+}
+
+#centercolumn_2 {
+    margin: 8px auto;
+    width: 542px;
+    text-align: left;
+}
+
+#centercolumn a {
+    color: #333;
+    background-color: inherit;
+}
+
+#centercolumn a:hover {
+    text-decoration: none;
+}
+
+
+/* Center Column News Box */
+
+.newsbox {
+    margin-bottom: 5px;
+    width: 542px;
+
+}
+
+.newsbox_header {
+    padding: 19px 10px 5px;
+
+    height: 22px;
+}
+
+.newsbox_header h2 {
+    padding-left: 20px;
+    width: 330px;
+    float: left;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.newsbox_header strong {
+    float: right;
+}
+
+.newsbox_content {
+    padding: 0px 10px 20px;
+
+    line-height: 14px;
+}
+
+.newsbox_comments a {
+    text-decoration: none;
+}
+
+.newsbox_comments a:hover {
+    color: #959595;
+    background-color: inherit;
+}
+
+
+/* Right Sidebar */
+
+#rightsidebar {
+    margin: 5px 0px 10px 7px;
+    width: 209px;
+    float: left;
+    color: inherit;
+    background-color: inherit;
+}
+
+
+/* Team Roster */
+
+#teamroster {
+    margin-bottom: 9px;
+    width: 209px;
+
+}
+
+#teamroster_header {
+    padding: 17px 7px 0px;
+
+}
+
+#teamroster h2 {
+    height: 35px;
+
+}
+
+#teamroster_content {
+    padding: 0px 7px 10px;
+
+}
+
+#teamroster_categories {
+    padding: 0px 7px 10px;
+    font-weight: bold;
+}
+
+#teamroster_categories a {
+    text-decoration: none;
+}
+
+#teamroster_categories a:hover {
+    text-decoration: underline
+}
+
+#teamroster ul {
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+#teamroster li {
+    color: #a71b1f;
+    background-color: #a71a1e;
+    background-repeat: no-repeat;
+    background-position: 45% 3px;
+    border: #ffd5d7 1px solid;
+    text-align: center;
+    float: left;
+}
+
+#teamroster li a {
+    display: block;
+    margin-top: 77px;
+    width: 94px;
+    height: 25px;
+    color: #a71b1f;
+
+    overflow: hidden;
+    line-height: 23px;
+    text-decoration: none;
+}
+
+#teamroster li a:hover {
+    color: #380100;
+    background-color: inherit;
+}
+
+li#roster_twitch {
+
+
+}
+
+li#roster_rock {
+
+}
+
+li#roster_badkarma {
+
+}
+
+li#roster_mostly {
+
+}
+
+li#roster_thebowl {
+
+}
+
+
+#teamroster .more_button {
+    padding: 10px 0px 0px;
+    text-align: center;
+}
+
+#teamroster .more_button a {
+    display: block;
+    margin: 0px auto;
+    width: 52px;
+    height: 21px;
+
+}
+
+
+/* Team Sponsors */
+
+#teamsponsors {
+    width: 209px;
+    color: inherit;
+    background-color: #a21219;
+}
+
+#teamsponsors h2 {
+    height: 46px;
+    border-bottom: #c80400 1px solid;
+
+}
+
+#teamsponsors_content {
+    padding: 15px 10px;
+    text-align: center;
+}
+
+#teamsponsors .more_button {
+    padding: 10px 0px 0px;
+}
+
+#teamsponsors .more_button a {
+    display: block;
+    margin: 0px auto;
+    width: 68px;
+    height: 70px;
+
+}
+
+
+/* Left Column and Sidebar */
+
+#leftcolumn {
+    width: 229px;
+    color: #000;
+    background-color: inherit;
+    float: right;
+    text-align: left;
+    font-size: 9px;
+}
+
+#leftcolumn ul {
+    width: 100%;
+    overflow: hidden;
+}
+
+#leftcolumn li {
+    margin-bottom: 1px;
+    padding: 3px 10px 5px 35px;
+    color: inherit;
+}
+
+#leftsidebar {
+    margin-right: 6px;
+    width: 223px;
+}
+
+#leftsidebar a {
+    color: #000;
+    background-color: inherit;
+    text-decoration: none;
+}
+
+#leftsidebar a:hover {
+    text-decoration: underline;
+}
+
+#leftsidebar h2 {
+    height: 54px;
+    background-repeat: no-repeat;
+    background-position: 10px 50%;
+}
+
+#leftsidebar .more_button {
+    padding-left: 48px;
+    height: 50px;
+}
+
+#leftsidebar .more_button a {
+    display: block;
+    margin-top: 14px;
+    width: 52px;
+    height: 21px;
+    float: left;
+}
+
+
+/* Recent Record */
+
+#recentrecord {
+    width: 229px;
+    height: 193px;
+    color: #fff;
+    font-weight: bold;
+}
+
+#recentrecord a {
+    text-decoration: none;
+}
+
+#recentrecord a:hover {
+    text-decoration: underline;
+}
+
+#recentrecord h2 {
+    width: 229px;
+    height: 76px;
+    color: inherit;
+}
+
+#recentrecord ul {
+    width: 229px;
+}
+
+#recentrecord li {
+    color: inherit;
+}
+
+
+/* Latest Matches */
+
+#latestmatch {
+    color: inherit;
+    background-color: #313131;
+    border-top: #fff 1px solid;
+}
+
+#latestmatch h2 {
+}
+
+#latestmatch li {
+    color: inherit;
+    background-color: #b3b3b3;
+}
+
+
+/* Gaming Services */
+
+#gamingservices {
+    color: inherit;
+    background-color: #313131;
+}
+
+#gamingservices h2 {
+}
+
+#gamingservices li {
+    padding-right: 5px;
+    color: inherit;
+    background-color: #cdcdcd;
+}
+
+#gamingservices .more_button {
+    padding-top: 2px;
+}
+
+
+/* Quick Links */
+
+#quicklinks {
+    color: inherit;
+    background-color: #000;
+}
+
+#quicklinks h2 {
+}
+
+#quicklinks li {
+    color: inherit;
+    background-color: #babdbf;
+}
+
+#quicklinks .more_button {
+    padding-top: 4px;
+    padding-bottom: 5px;
+}
+
+
+/* Page Footer */
+
+#page_footer {
+    margin-left: 229px;
+    margin-right: 222px;
+    padding: 20px 0px 0px;
+    width: 552px;
+    text-align: center;
+    color: #fff;
+    background-color: #464646;
+    position: relative;
+    top: -20px;
+}

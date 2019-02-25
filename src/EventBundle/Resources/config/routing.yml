@@ -1,3 +1,30 @@
 event_homepage:
     path:     /
     defaults: { _controller: EventBundle:Default:index }
+indexEvent:
+    path:     /indexEvent
+    defaults: { _controller: EventBundle:evenement:indexEvent }
+showInfo:
+    path:     /{id}/showInfo
+    defaults: { _controller: EventBundle:evenement:showInfo }
+event_404:
+    path:     /404
+    defaults: { _controller: EventBundle:Default:wrong }
+admin:
+    resource: "@EventBundle/Resources/config/routingAdmin.yml"
+    prefix:   /admin
+eventByCategory:
+     path:     /cat/{id}
+     defaults: { _controller: EventBundle:evenement:eventByCategory }
+eventFiltre:
+     path:     /filtre
+     defaults: { _controller: EventBundle:evenement:eventFiltre }
+workshops_like:
+  path:     /like/{id}
+  defaults: { _controller: "EventBundle:evenement:Like" }
+participation:
+  path:     /participation/{id}
+  defaults: { _controller: EventBundle:evenement:Participation }
+annulerparticipation:
+  path:     /annulerparticipation/{id}
+  defaults: { _controller: EventBundle:evenement:annulerParticipation }

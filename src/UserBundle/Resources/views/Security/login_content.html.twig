@@ -25,10 +25,11 @@
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" />
     <script src="{{ asset('js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
 </head>
+{% if app.user != null %}
 <body class="tg-login">
 <!--[if lt IE 8]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
+
 <!--************************************
         Preloader Start
 *************************************-->
@@ -39,9 +40,9 @@
 <!--************************************
         Preloader End
 *************************************-->
-<!--************************************
-        Wrapper Start
-*************************************-->
+
+{% endif %}
+
 <div id="tg-wrapper" class="tg-wrapper tg-haslayout">
     <!--************************************
             Header Start
@@ -711,9 +712,8 @@
             Footer End
     *************************************-->
 </div>
-<!--************************************
-        Wrapper End
-*************************************-->
+
+
 <script src="{{ asset('js/vendor/jquery-library.js') }}"></script>
 <script src="{{ asset('js/vendor/bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/mapclustering/data.json') }}"></script>

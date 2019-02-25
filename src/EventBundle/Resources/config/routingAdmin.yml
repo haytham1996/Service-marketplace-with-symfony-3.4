@@ -1,0 +1,28 @@
+admin_homepage:
+    path:   /
+    defaults: {_controller: EventBundle:Default:indexAdmin}
+evenement_index:
+    path:     /index
+    defaults: { _controller: "EventBundle:evenement:index" }
+    methods:  GET
+evenement_show:
+    path:     /{id}/show
+    defaults: { _controller: "EventBundle:evenement:show" }
+    methods:  GET
+
+evenement_new:
+    path:     /new
+    defaults: { _controller: "EventBundle:evenement:new" }
+    methods:  [GET, POST]
+
+evenement_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "EventBundle:evenement:edit" }
+    methods:  [GET, POST]
+
+evenement_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "EventBundle:evenement:delete" }
+category:
+    resource: "@EventBundle/Resources/config/category.yml"
+    prefix:   /category

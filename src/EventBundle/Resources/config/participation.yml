@@ -1,0 +1,24 @@
+participation_index:
+    path:     /
+    defaults: { _controller: "EventBundle:participation:index" }
+    methods:  GET
+
+participation_show:
+    path:     /{id}/show
+    defaults: { _controller: "EventBundle:participation:show" }
+    methods:  GET
+
+participation_new:
+    path:     /newP
+    defaults: { _controller: "EventBundle:participation:new" }
+    methods:  [GET, POST]
+
+participation_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "EventBundle:participation:edit" }
+    methods:  [GET, POST]
+
+participation_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "EventBundle:participation:delete" }
+    methods:  DELETE

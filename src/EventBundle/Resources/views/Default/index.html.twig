@@ -1,1 +1,161 @@
-Hello World!
+{% extends 'front.html.twig' %}
+
+{% block content %}
+    <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3 pull-left">
+        <aside id="tg-sidebar" class="tg-sidebar">
+            <form class="tg-themeform tg-formrefinesearch" method="post" action="{{ path('eventFiltre') }} ">
+
+                <fieldset>
+                    <h4>Categories</h4>
+
+                    <div class="tg-checkboxgroup">
+
+                        {% for c in categories %}
+
+
+                            <span >
+												<input type="checkbox" id="tg-cabservice" name="categ[]" value="{{c.id}}" >
+
+                                                    <label for="tg-cabservice">{{c.type}}</label>
+                                                </span>
+
+                        {% endfor %}
+
+                    </div>
+
+                </fieldset>
+
+                <fieldset>
+                    <button class="tg-btn" type="submit">apply</button>
+                    <button class="tg-btn" type="reset">reset</button>
+                </fieldset>
+            </form>
+        </aside>
+    </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9 pull-right">
+                        <div class="row">
+                            <div id="tg-content" class="tg-content">
+                                <div class="tg-listing">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <span class="tg-totallistingfound"> {{ pagination | length }} Results Found</span>
+                                        <div class="tg-sortfilters">
+                                            <div class="tg-sortfilter tg-sortby">
+                                                <span>Sort By:</span>
+                                                <div class="tg-select">
+
+                                                    <select>
+                                                        <option>Name</option>
+                                                        <option>Type</option>
+                                                        <option>date</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="tg-sortfilter tg-arrange">
+                                                <span>Arrange:</span>
+                                                <div class="tg-select">
+                                                    <select>
+                                                        <option>des</option>
+                                                        <option>Asc</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="tg-sortfilter tg-show">
+                                                <span>Show:</span>
+                                                <div class="tg-select">
+                                                    <select>
+                                                        <option>12</option>
+                                                        <option>24</option>
+                                                        <option>all</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tg-serviceproviders">
+                                        {% for workshop in pagination %}
+                                            {% if workshop.dateDebut|date >=date2|date %}
+                                            <div class="col-xs-6 col-sm-12 col-md-6 col-lg-4">
+                                                <div class="tg-serviceprovider">
+                                                    <figure class="tg-featuredimg">
+                                                        <img  src="{{ asset('') }}{{ vich_uploader_asset(workshop, 'imageFile') }}" alt="image description" width="50px" height="50px">
+                                                        <figcaption>
+                                                            <a class="tg-themetag tg-categorytag" href="javascript:void(0);">{{ workshop.category.type }}</a>
+                                                            <a id="like_{{ workshop.id }}" class="tg-heart
+                                                        {% if workshop.id in liked %}
+                                                        tg-liked
+                                                        {% endif %}
+                                                        " href="{{ path('workshops_like',{'id':workshop.id}) }}"><i class="fa fa-heart"></i></a>
+                                                        </figcaption>
+                                                    </figure>
+                                                    <div class="tg-companycontent">
+                                                        <ul class="tg-tags">
+                                                            <li><a class="tg-tag tg-featuredtag" href="#">{{ workshop.dateDebut |date('Y-m-d') }}</a></li>
+                                                            <li><a class="tg-tag tg-verifiedtag" href="#">{{ workshop.dateFin |date('Y-m-d') }}</a></li>
+                                                        </ul>
+                                                        <div class="tg-title">
+                                                            <h3><a href="{{ path('showInfo',{'id':workshop.id}) }}">{{ workshop.titre }}</a><a href="{{ path('showInfo',{'id':workshop.id}) }}" type="button" class="btn btn-info">More Info</a></h3>
+                                                        </div>
+                                                        <ul class="tg-matadata">
+                                                            <li><span class="tg-stars"><span></span></span></li>
+                                                            <li>
+                                                                <i class="fa fa-thumbs-o-up"></i>
+                                                                <em id="{{ workshop.id }}">{{ workshop.nbrJaime }}</em>
+                                                            </li>
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+
+                                        {% endfor %}
+                                    </div>
+                                    <div class="tg-navigation" style="text-align: center">
+                                        {{ knp_pagination_render(pagination) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div></main>
+    </main>
+
+{% endblock %}
+{% block js %}
+    <script>
+        function OnClickBtnLike(event)
+        {
+            event.preventDefault();
+            const url= this.href;
+            var fullid=this.id;
+            var id=fullid.split("_");
+            const heart=document.getElementById(fullid);
+            console.log(id);
+            const likes=document.getElementById(id[1]);
+            axios.get(url).then(function (response) {
+                const likenbr=response.data.data.nbr;
+                const type=response.data.data.type;
+                likes.innerHTML=likenbr;
+                if(type==0)
+                {
+                    heart.classList.remove("tg-liked");
+                }
+                else
+                {
+                    heart.classList.add("tg-liked");
+                }
+            })
+        }
+        document.querySelectorAll('a.tg-heart').forEach(function (link) {
+            link.addEventListener('click',OnClickBtnLike);
+
+        })
+    </script>
+{% endblock %}

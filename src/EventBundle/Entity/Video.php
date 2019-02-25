@@ -35,6 +35,13 @@ class Video
      */
     private $titre;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nbJaime", type="integer", nullable=true)
+     */
+    private $nbJaime;
+
 
     /**
      * Get id
@@ -93,5 +100,28 @@ class Video
     {
         return $this->titre;
     }
-}
 
+    /**
+     * Set nbJaime
+     *
+     * @param integer $nbJaime
+     *
+     * @return Video
+     */
+    public function setNbJaime($nbJaime)
+    {
+        $this->nbJaime = $nbJaime;
+
+        return $this;
+    }
+
+    /**
+     * Get nbJaime
+     *
+     * @return integer
+     */
+    public function getNbJaime()
+    {
+        return $this->nbJaime;
+    }
+}

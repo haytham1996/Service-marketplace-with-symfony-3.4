@@ -1,0 +1,89 @@
+{% extends 'front.html.twig' %}
+{% block content %}
+<div class="row">
+    <div id="tg-twocolumns" class="tg-twocolumns">
+        <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
+            <div id="tg-content" class="tg-content">
+                <div class="tg-dashboard tg-dashboardappointmentsetting">
+                    <form class="tg-themeform">
+                        <fieldset>
+                            <div class="tg-dashboardbox tg-dashboardappointments">
+                                <div class="tg-dashboardtitle">
+                                    <h2>Les evenements</h2>
+                                </div>
+                                <div id="tg-datepicker" class="tg-datepicker"></div>
+                                <div class="tg-sortfilters">
+                                    <div class="tg-sortfilter tg-sortby">
+                                        <span>Sort By:</span>
+                                        <div class="tg-select">
+                                            <select>
+                                                <option>days</option>
+                                                <option>Type</option>
+                                                <option>date</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="tg-sortfilter tg-arrange">
+                                        <span>Arrange:</span>
+                                        <div class="tg-select">
+                                            <select>
+                                                <option>des</option>
+                                                <option>Asc</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="tg-sortfilter tg-show">
+                                        <span>Show:</span>
+                                        <div class="tg-select">
+                                            <select>
+                                                <option>All</option>
+                                                <option>24</option>
+                                                <option>all</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tg-dashboardappointmentbox">
+                                    {% for e in evenements  %}
+                                    <div class="tg-dashboardappointment">
+                                        <div class="tg-servicetitle">
+                                            <figure>
+                                                <img src="{{ asset('') }}{{ vich_uploader_asset(e, 'imageFile') }}" alt="photo" width="100" height="100" data-enlargable style="cursor: zoom-in" alt="image description">
+                                            </figure>
+                                            <div class="tg-clientcontent">
+                                                <h2><a href="javascript:void(0);">{{ e.titre }}</a></h2>
+                                            </div>
+                                        </div>
+                                        <div class="tg-serviceandservicetype">
+                                            <h3>Adresse</h3>
+                                            <span>{{ e.adresse }}</span>
+                                        </div>
+                                        <div class="tg-btntimeedit">
+                                            <div class="tg-appointmenttype">
+                                                <h3>Date debut</h3>
+                                                <span>{{ e.dateDebut |date }}</span>
+                                            </div>
+                                            <a href="{{ path('showInfo',{'id': e.id }) }}" class="tg-btnedite"><i class="lnr lnr-checkmark-circle"></i></a>
+                                            <a href="#" class="tg-btndel" data-toggle="modal" data-target=".tg-appointmentrejectmodal"><i class="lnr lnr-cross-circle"></i></a>
+                                        </div>
+                                        {% endfor %}
+
+                                    </div>
+
+
+
+
+
+
+
+
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

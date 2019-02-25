@@ -1,0 +1,47 @@
+{% extends 'front.html.twig' %}
+{% block css %}
+    <style type="text/css">
+        .lien-bouton{
+            color:silver;
+            text-decoration:none;
+            font-weight:bold;
+            padding-bottom:4px;
+            border-bottom:solid 3px black;
+        }
+
+        .lien-bouton:hover{
+            color:steelblue;
+            border-bottom:solid 3px silver
+        }
+    </style>
+    <link rel="stylesheet" href="{{ asset('bundles/Forum/css/forumstyle.css') }}">
+{% endblock %}
+{% block content %}
+    {% for t in topic %}
+<fieldset>
+<div id="centercolumn">
+    <div id="centercolumn_2">
+        <!-- Start of News Box 1 -->
+        <div class="newsbox">
+            <div class="newsbox_header">
+                <!-- News Title -->
+                <h2>{{ t.titre }}</h2>
+                <!-- News Date -->
+                <strong>{{ t.datePubliee|date }}</strong>
+                <div class="clearthis">&nbsp;</div>
+            </div>
+            <div class="newsbox_content">
+                <!-- News Text -->
+                <p>
+                    {{ t.content }}
+                    <a href="#">More...</a> </p>
+            </div>
+        </div>
+    </div>
+</div>
+</fieldset>
+{% endfor %}
+    <p>
+    <center><a href="{{ path('createTopic') }}" class="lien-bouton">Creer votre sujet</a></center>
+    </p>
+{% endblock %}

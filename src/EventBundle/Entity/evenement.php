@@ -3,12 +3,15 @@
 namespace EventBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * evenement
  *
  * @ORM\Table(name="evenement")
  * @ORM\Entity(repositoryClass="EventBundle\Repository\evenementRepository")
+ * @Vich\Uploadable
  */
 class evenement
 {
@@ -33,14 +36,14 @@ class evenement
      *
      * @ORM\Column(name="date", type="date")
      */
-    private $date;
+    private $dateDebut;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="datein", type="date")
+     * @ORM\Column(name="dateFin", type="date")
      */
-    private $datein;
+    private $dateFin;
 
     /**
      * @var string
@@ -59,9 +62,9 @@ class evenement
     /**
      * @var string
      *
-     * @ORM\Column(name="affiche", type="blob")
+     * @ORM\Column(name="adresse", type="string",nullable=false,length=255)
      */
-    private $affiche;
+    private $adresse;
 
     /**
      * @var int
@@ -70,6 +73,19 @@ class evenement
      */
     private $nbnscription;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="category")
+     * @ORM\JoinColumn(name="IdCategory",referencedColumnName="id" )
+     *
+     */
+    private $category ;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nbrJaime", type="integer")
+     */
+    private $nbrJaime;
 
     /**
      * Get id
@@ -106,15 +122,15 @@ class evenement
     }
 
     /**
-     * Set date
+     * Set dateDebut
      *
-     * @param \DateTime $date
+     * @param \DateTime $dateDebut
      *
      * @return evenement
      */
-    public function setDate($date)
+    public function setDateDebut($dateDebut)
     {
-        $this->date = $date;
+        $this->dateDebut = $dateDebut;
 
         return $this;
     }
@@ -124,33 +140,33 @@ class evenement
      *
      * @return \DateTime
      */
-    public function getDate()
+    public function getDateDebut()
     {
-        return $this->date;
+        return $this->dateDebut;
     }
 
     /**
-     * Set datein
+     * Set dateFin
      *
-     * @param \DateTime $datein
+     * @param \DateTime $dateFin
      *
      * @return evenement
      */
-    public function setDatein($datein)
+    public function setDateFin($dateFin)
     {
-        $this->datein = $datein;
+        $this->dateFin = $dateFin;
 
         return $this;
     }
 
     /**
-     * Get datein
+     * Get dateFin
      *
      * @return \DateTime
      */
-    public function getDatein()
+    public function getDateFin()
     {
-        return $this->datein;
+        return $this->dateFin;
     }
 
     /**
@@ -178,6 +194,19 @@ class evenement
     }
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=255)
+     */
+    private $url;
+
+    /**
+     * @Vich\UploadableField(mapping="profil_images", fileNameProperty="url")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
      * Set prix
      *
      * @param float $prix
@@ -202,27 +231,51 @@ class evenement
     }
 
     /**
-     * Set affiche
+     * Set adresse
      *
-     * @param string $affiche
+     * @param string $adresse
      *
      * @return evenement
      */
-    public function setAffiche($affiche)
+    public function setAdresse($adresse)
     {
-        $this->affiche = $affiche;
+        $this->adresse = $adresse;
 
         return $this;
     }
 
     /**
-     * Get affiche
+     * Get adresse
      *
      * @return string
      */
-    public function getAffiche()
+    public function getAdresse()
     {
-        return $this->affiche;
+        return $this->adresse;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return evenement
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
     }
 
     /**
@@ -249,6 +302,65 @@ class evenement
         return $this->nbnscription;
     }
 
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
 
+        if ($image) {
+            $this->datePublication = new \DateTime('now');
+        }
+    }
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+
+    /**
+     * Set category
+     *
+     * @param \EventBundle\Entity\category $category
+     *
+     * @return evenement
+     */
+    public function setCategory(\EventBundle\Entity\category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \EventBundle\Entity\category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set nbrJaime
+     *
+     * @param integer $nbrJaime
+     *
+     * @return evenement
+     */
+    public function setNbrJaime($nbrJaime)
+    {
+        $this->nbrJaime = $nbrJaime;
+
+        return $this;
+    }
+
+    /**
+     * Get nbrJaime
+     *
+     * @return integer
+     */
+    public function getNbrJaime()
+    {
+        return $this->nbrJaime;
+    }
 }
-

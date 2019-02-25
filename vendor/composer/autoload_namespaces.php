@@ -9,6 +9,7 @@ return array(
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'Metadata\\' => array($vendorDir . '/jms/metadata/src'),
+    'Knp\\Component' => array($vendorDir . '/knplabs/knp-components/src'),
     'Doctrine\\ORM\\' => array($vendorDir . '/doctrine/orm/lib'),
     'Doctrine\\DBAL\\' => array($vendorDir . '/doctrine/dbal/lib'),
     'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib'),

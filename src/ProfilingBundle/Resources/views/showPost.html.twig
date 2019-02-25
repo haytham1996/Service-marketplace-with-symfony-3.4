@@ -122,13 +122,15 @@
             <aside id="tg-sidebar" class="tg-sidebar">
                 <div class="tg-widgetprofile">
                     <figure class="tg-profilebannerimg">
-                        <img src="images/img-02.jpg" alt="image description">
+                        <img src="{{ asset('images/img-02.jpg') }}" alt="image description">
                     </figure>
                     <div class="tg-widgetcontent">
                         <figure>
-                            <img src="images/thumbnails/img-07.jpg" alt="image description">
+
+                            <img src="{{ asset('images/' ~ app.user.image) }}" alt="image description">
                             <a class="tg-btnedite" href="javascript:void(0);"><i class="lnr lnr-pencil"></i></a>
                         </figure>
+
                         <div class="tg-admininfo">
                             <h3>Kena Maresca</h3>
                             <h4>Bright Future Group &amp; Company</h4>

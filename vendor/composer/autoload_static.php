@@ -72,6 +72,10 @@ class ComposerStaticInit56b7ce5a9c41f076058c88caf5259ba4
         array (
             'Monolog\\' => 8,
         ),
+        'K' => 
+        array (
+            'Knp\\Bundle\\PaginatorBundle\\' => 27,
+        ),
         'I' => 
         array (
             'Ivory\\JsonBuilder\\' => 18,
@@ -222,6 +226,10 @@ class ComposerStaticInit56b7ce5a9c41f076058c88caf5259ba4
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'Knp\\Bundle\\PaginatorBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-paginator-bundle',
+        ),
         'Ivory\\JsonBuilder\\' => 
         array (
             0 => __DIR__ . '/..' . '/egeloen/json-builder/src',
@@ -300,6 +308,13 @@ class ComposerStaticInit56b7ce5a9c41f076058c88caf5259ba4
             'Metadata\\' => 
             array (
                 0 => __DIR__ . '/..' . '/jms/metadata/src',
+            ),
+        ),
+        'K' => 
+        array (
+            'Knp\\Component' => 
+            array (
+                0 => __DIR__ . '/..' . '/knplabs/knp-components/src',
             ),
         ),
         'D' => 

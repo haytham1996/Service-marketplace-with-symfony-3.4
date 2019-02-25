@@ -6,6 +6,7 @@ use ProfilingBundle\Entity\Album;
 use ProfilingBundle\Entity\Post;
 use ProfilingBundle\Form\PostType;
 use ProfilingBundle\Repository\PostRepository;
+use SebastianBergmann\CodeCoverage\Node\File;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,6 +15,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\DateTime;
 use UserBundle\Entity\User;
 use Vich\UploaderBundle\Form\Type\VichImageType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class ProfileController extends Controller
 {
@@ -21,8 +23,9 @@ public function index_profileAction()
 {
     $u = $this->container->get('security.token_storage')->getToken()->getUser();
     $em=$this->getDoctrine()->getManager();
+    $categories = $em->getRepository('EventBundle:category')->findAll();
     return $this->render('@Profiling/Profile.html.twig',array(
-        'curr_user'=>$u
+        'curr_user'=>$u ,'categories'=>$categories,
     ));
 }
     public function albumAction(Request $request)
@@ -30,6 +33,7 @@ public function index_profileAction()
         $u=$this->container->get('security.token_storage')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
         $album = new Album();
+        $categories = $em->getRepository('EventBundle:category')->findAll();
         //----------------
         $form=$this->createFormBuilder($album)
             ->add('imageFile', VichImageType::class)
@@ -62,7 +66,7 @@ public function index_profileAction()
         $photos=$em->getRepository(Album::class)->findBy(array('user' => $u->getId()),array('datePublication' => 'ASC'));
 
         return $this->render('@Profiling/ProfileSettings.html.twig',array(
-            'curr_user'=>$u,'form'=>$form->createView(),'photos'=>$photos
+            'curr_user'=>$u,'form'=>$form->createView(),'photos'=>$photos,'categories'=>$categories,
         ));
     }
 
@@ -140,7 +144,7 @@ public function index_profileAction()
         }
 
         return $this->render('@Profiling/showPost.html.twig', array(
-            "recent"=>$recent,'user'=>$u
+            "recent"=>$recent,"curr_user"=>$u
         ));
     }
     public function updateAction(Request $request,$idp)
@@ -178,4 +182,50 @@ public function index_profileAction()
 
 
     }
+    public function paramInfoAction(Request $request){
+        $u= $this->container->get('security.token_storage')->getToken()->getUser();
+        $em = $this->getDoctrine()->getManager();
+        //----------------
+        $form=$this->createFormBuilder($u)
+            ->add('Add',SubmitType::class)
+            ->getForm();
+        $form->handleRequest($request);
+        if (($form->isSubmitted())&&($form->isValid()))
+        {
+            $u=$form->getData();
+            $em->flush();
+            return $this->redirectToRoute('paramInfo');
+        }
+        //----------------
+        $user = $em->getRepository(User::class)->find($u->getId());
+        if ($request->isMethod('POST')) {
+            $user->setNom($request->get('nom'));
+            $user->setPrenom($request->get('prenom'));
+            $user->setgender($request->get('gender'));
+            $user->setadresse($request->get('adresse'));
+            $user->setPhoneNumber($request->get('phoneNumber'));
+            $user->setApropos($request->get('apropos'));
+            $user->setOccupation($request->get('occupation'));
+                $em->persist($user);
+                $em->flush();
+                return $this->redirectToRoute('paramInfo');
+            }
+
+
+
+        return $this->render('@Profiling/paraminfo.html.twig', array(
+            'us' => $u,'form'=>$form->createView()
+        ));
+    }
+    public function autreprofileAction($id){
+        $em = $this->getDoctrine()->getManager();
+        $u = $em->getRepository(User::class)->findBy(array('id' => $id));
+        $photos=$em->getRepository(Album::class)->findBy(array('user'=>$id),null,9,null);
+        $posts=$em->getRepository(Post::class)->findBy(array('user'=>$id),array('datePublication'=>'DESC'));
+
+        return $this->render('@Profiling/autreprofile.html.twig',array(
+           'autreuser'=>$u[0],'photos'=>$photos,'posts'=>$posts
+        ));
+    }
+
 }

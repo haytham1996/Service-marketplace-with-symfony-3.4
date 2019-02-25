@@ -7,6 +7,7 @@
     {% block title %}<title>PI Template</title>{% endblock %}
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/normalize.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" />
@@ -28,10 +29,10 @@
 
     {% endblock %}
 </head>
+{% if app.user != null %}
 <body class="tg-login">
-<!--[if lt IE 8]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
+{% endif %}
 <!--************************************
         Preloader Start
 *************************************-->
@@ -100,7 +101,8 @@
                                 <div class="tg-themedropdown tg-userdropdown">
                                     <a href="javascript:void(0);" id="tg-usermenu" class="tg-btndropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <em><img src={{ asset('images/thumbnails/img-01.jpg') }} alt="image description"></em>
-                                        <span>Hi! Kena Maresca</span>
+
+                                        <span>Hi! {{ app.user.username }}</span>
                                         <i class="fa fa-angle-down"></i>
                                     </a>
                                     <div class="tg-dropdownmenu tg-usermenu" aria-labelledby="tg-usermenu">
@@ -222,7 +224,7 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="{{ path('fos_user_security_logout') }}">
                                                         <i class="lnr lnr-exit"></i>
                                                         <span>Logout</span>
                                                     </a>
@@ -284,99 +286,27 @@
                                             </ul>
                                         </li>
                                         <li class="menu-item-has-children">
-                                            <a href="javascript:void(0);">Categories</a>
+                                            <a href="javascript:void(0);">Evenement</a>
                                             <ul class="sub-menu">
                                                 <li class="menu-item-has-children">
-                                                    <a href="#">Automotive</a>
+                                                    <a href="#">Categories</a>
                                                     <ul class="sub-menu">
-                                                        <li><a href="categories3col.html">Catagories</a></li>
-                                                        <li><a href="categories4col.html">Catagories 2</a></li>
+                                                        {% for c in categories %}
+                                                        <li><a href="{{ path('eventByCategory',{'id':c.id})}}">{{ c.type }}</a></li>
+                                                       {% endfor %}
                                                     </ul>
                                                 </li>
-                                                <li class="menu-item-has-children">
-                                                    <a href="#">Beauty &amp; Personal Care</a>
-                                                    <ul class="sub-menu">
-                                                        <li><a href="categories3col.html">Catagories</a></li>
-                                                        <li><a href="categories4col.html">Catagories 2</a></li>
-                                                    </ul>
+
+                                                <li >
+                                                    <a href="{{ path('indexEvent') }}">Show ALL</a>
+
                                                 </li>
-                                                <li class="menu-item-has-children">
-                                                    <a href="#">Business</a>
-                                                    <ul class="sub-menu">
-                                                        <li><a href="categories3col.html">Catagories</a></li>
-                                                        <li><a href="categories4col.html">Catagories 2</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item-has-children">
-                                                    <a href="#">Child Care</a>
-                                                    <ul class="sub-menu">
-                                                        <li><a href="categories3col.html">Catagories</a></li>
-                                                        <li><a href="categories4col.html">Catagories 2</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item-has-children">
-                                                    <a href="#">Cleaning</a>
-                                                    <ul class="sub-menu">
-                                                        <li><a href="categories3col.html">Catagories</a></li>
-                                                        <li><a href="categories4col.html">Catagories 2</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item-has-children">
-                                                    <a href="#">Computer &amp; Mobile Service</a>
-                                                    <ul class="sub-menu">
-                                                        <li><a href="categories3col.html">Catagories</a></li>
-                                                        <li><a href="categories4col.html">Catagories 2</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item-has-children">
-                                                    <a href="#">Food &amp; Drinks</a>
-                                                    <ul class="sub-menu">
-                                                        <li><a href="categories3col.html">Catagories</a></li>
-                                                        <li><a href="categories4col.html">Catagories 2</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item-has-children">
-                                                    <a href="#">General Labor</a>
-                                                    <ul class="sub-menu">
-                                                        <li><a href="categories3col.html">Catagories</a></li>
-                                                        <li><a href="categories4col.html">Catagories 2</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item-has-children">
-                                                    <a href="#">Construction &amp; Renovation</a>
-                                                    <ul class="sub-menu">
-                                                        <li><a href="categories3col.html">Catagories</a></li>
-                                                        <li><a href="categories4col.html">Catagories 2</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item-has-children">
-                                                    <a href="#">Health &amp; Fitness</a>
-                                                    <ul class="sub-menu">
-                                                        <li><a href="categories3col.html">Catagories</a></li>
-                                                        <li><a href="categories4col.html">Catagories 2</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item-has-children">
-                                                    <a href="#">Pet Care</a>
-                                                    <ul class="sub-menu">
-                                                        <li><a href="categories3col.html">Catagories</a></li>
-                                                        <li><a href="categories4col.html">Catagories 2</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item-has-children">
-                                                    <a href="#">Traning &amp; Education</a>
-                                                    <ul class="sub-menu">
-                                                        <li><a href="categories3col.html">Catagories</a></li>
-                                                        <li><a href="categories4col.html">Catagories 2</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item-has-children">
-                                                    <a href="#">Transportation &amp; Travel</a>
-                                                    <ul class="sub-menu">
-                                                        <li><a href="categories3col.html">Catagories</a></li>
-                                                        <li><a href="categories4col.html">Catagories 2</a></li>
-                                                    </ul>
-                                                </li>
+
+
+
+
+
+
                                             </ul>
                                         </li>
                                         <li class="menu-item-has-children">
@@ -687,7 +617,7 @@
 <!--************************************
         Wrapper End
 *************************************-->
-<script src="{{ asset('js/vendor/jquery-library.js') }}"></script>
+<script src="{{ asset('back/jquery.min.js') }}"></script>
 <script src="{{ asset('js/vendor/bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/mapclustering/data.json') }}"></script>
 <script src="{{ asset('js/mapclustering/markerclusterer.min.js') }}"></script>
@@ -702,6 +632,7 @@
 <script src="{{ asset('js/gmap3.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
 <script src="{{ asset('bundles/Profiling/js/tags-input.js') }}"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 {% block js %}
 
 {% endblock %}

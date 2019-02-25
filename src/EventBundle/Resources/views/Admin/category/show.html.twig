@@ -1,0 +1,44 @@
+{% extends 'back.html.twig' %}
+{% block content %}
+    <h1>Category</h1>
+    <div >
+        <div class="container-table100">
+            <div class="wrap-table100">
+                <div class="table100 ver1 m-b-110">
+                    <div class="table100-head">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th class="cell100 column1">Type de category </th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="table100-body js-pscroll">
+        <table>
+            <tbody>
+            <tr class="row100 body">
+                <td class="cell100 column1">{{ category.type }}</td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <ul>
+        <li>
+            <a href="{{ path('category_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('category_edit', { 'id': category.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

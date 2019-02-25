@@ -1,0 +1,53 @@
+{% extends 'front.html.twig' %}
+{% block content %}
+    {{ form_start(form) }}
+    <div class="container">
+    <div class="row">
+        <div class="col-xl-9 push-xl-3 col-lg-9 push-lg-3 col-md-12 col-sm-12 col-xs-12">
+            <div class="ui-block">
+                <div class="ui-block-title">
+                    <h6 class="title">Ajouter un sujet</h6>
+                </div>
+                <div class="ui-block-content">
+                    <form>
+                        <fieldset>
+                        <div class="row">
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Titre </label>
+                                    {{ form_widget(form.titre, {'attr' : { 'class' : 'form-control' }}) }}
+                                </div>
+                            </div>
+
+
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group label-floating ">
+                                    <label class="control-label">Le contenu : </label>
+                                    {{ form_widget(form.content, {'attr' : { 'class' : 'form-control' }}) }}
+
+                                </div>
+                            </div>
+
+                            <div hidden class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Date</label>
+                                    {{ form_widget(form.datePubliee, {'attr' : { 'class' : 'datetimepicker' }}) }}
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                {{ form_widget(form.save, {'attr' : { 'class' : 'btn btn-primary btn-lg full-width' }}) }}
+
+                            </div>
+
+                        </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ form_end(form) }}
+
+{% endblock %}

@@ -10,4 +10,37 @@ namespace EventBundle\Repository;
  */
 class ParticipationRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findP($evenement,$user)
+    {
+        $qb= $this->createQueryBuilder('l')
+            ->select('l')
+            ->where('l.user = :user')
+            ->setParameter('user',$user)
+            ->andWhere('l.evenement = :evenement')
+            ->setParameter('evenement',$evenement);
+        $x = $qb->getQuery()->getOneOrNullResult();
+        return $x;
+    }
+
+    public function findPa($evenement,$user)
+    {
+        $qb= $this->createQueryBuilder('l')
+            ->select('l')
+            ->where('l.user = :user')
+            ->setParameter('user',$user)
+            ->andWhere('l.evenement = :evenement')
+            ->setParameter('evenement',$evenement);
+        if(   $x = $qb->getQuery()->getOneOrNullResult() != null)
+        return $x;
+        return null;
+    }
+    public function findPart($evenement)
+    {
+        $qb= $this->createQueryBuilder('l')
+            ->select('l')
+            ->andWhere('l.evenement = :evenement')
+            ->setParameter('evenement',$evenement);
+        $x = $qb->getQuery()->getOneOrNullResult();
+        return $x;
+}
 }

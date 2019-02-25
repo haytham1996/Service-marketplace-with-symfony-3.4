@@ -1,0 +1,44 @@
+{% extends 'back.html.twig' %}
+
+{% block content %}
+    <div class="limiter">
+    <div class="container-table100">
+    <div class="wrap-table100">
+    <div class="table100 ver1 m-b-110">
+    <div class="table100-head">
+        <table>
+            <thead>
+            <tr class="row100 head">
+                <th class="cell100 column1">Titre de l'evenement</th>
+                <th class="cell100 column1">category</th>
+                <th class="cell100 column2">Date Debut</th>
+                <th class="cell100 column3">Date Fin</th>
+                <th class="cell100 column4">nombre participants</th>
+                <th class="cell100 column5">Adresse</th>
+                <th class="cell100 column6">Description</th>
+                <th class="cell100 column7">Affiche</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="table100-body js-pscroll">
+    <table>
+    <tbody>
+<tr class="row100 body">
+    <td class="cell100 column1">{{ evenement.titre }}</td>
+    <td class="cell100 column1">{{ evenement.category.type}}</td>
+    <td class="cell100 column2">{{ evenement.dateDebut | date  }}</td>
+    <td class="cell100 column3">{{ evenement.dateFin | date }}</td>
+    <td class="cell100 column4">{{ evenement.nbnscription }}</td>
+    <td class="cell100 column5">{{ evenement.adresse }}</td>
+    <td class="cell100 column6">{{ evenement.description }}</td>
+    <td class="cell100 column7"><img src="{{ asset('') }}{{ vich_uploader_asset(evenement, 'imageFile') }}" alt="photo" width="100" height="100" data-enlargable style="cursor: zoom-in"></td>
+</tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}

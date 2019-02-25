@@ -158,6 +158,13 @@ class User extends BaseUser
     }
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="occupation", type="string" , length=255,nullable=true)
+     */
+    public $occupation;
+
+    /**
      * Get inscriptiondate
      *
      * @return string
@@ -263,6 +270,22 @@ class User extends BaseUser
     public function setApropos($apropos)
     {
         $this->apropos = $apropos;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOccupation()
+    {
+        return $this->occupation;
+    }
+
+    /**
+     * @param string $occupation
+     */
+    public function setOccupation($occupation)
+    {
+        $this->occupation = $occupation;
     }
 
 }
